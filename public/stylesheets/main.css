@@ -1,0 +1,38 @@
+.M {
+    border: 2px solid red;
+    display: flex;
+    height: 60px;
+    background-color: blue;
+}
+
+.M-L {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.M-L-I {
+    margin: 0px 10px;
+    
+    
+}
+
+.M-L-I-A {
+    text-decoration: none;
+    color: white;
+}
+
+
+#body {
+    height: 800px;
+    border: 2px solid green;
+}
+
+.blogBox {
+    border: 2px solid green;
+}
+
+#subUp {
+    display: none;
+}
+
