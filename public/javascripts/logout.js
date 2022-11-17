@@ -18,7 +18,7 @@ async function logout() {
             alert(response.statusText);
         }
     } catch (err) {
-        
+
     }
 
 
@@ -27,7 +27,7 @@ async function logout() {
 let time = 0;
 function inActiveTime() {
     //Checks each minute
-    setInterval(checkTimer, 60000);
+    setInterval(checkTimer, 2000);
     document.onmousemove = function () {
         time = 0;
     }
@@ -41,7 +41,7 @@ inActiveTime();
 async function checkTimer() {
     //Sets for 5 mins
     console.log(time);
-    if (time == 3) {
+    if (time == 1) {
         logout();
     }
     time = time + 1;
