@@ -8,13 +8,17 @@ async function logout() {
     }
 
 
-    //Send / Receive                //Location
-    const response = await fetch('/api/users/logout', options);
-    //If received successfully
-    if (response.ok) {
-        document.location.replace(`/`);
-    } else {
-        alert(response.statusText);
+    try {
+        //Send / Receive                //Location
+        const response = await fetch('/api/users/logout', options);
+        //If received successfully
+        if (response.ok) {
+            document.location.replace(`/`);
+        } else {
+            alert(response.statusText);
+        }
+    } catch (err) {
+        
     }
 
 
@@ -23,7 +27,7 @@ async function logout() {
 let time = 0;
 function inActiveTime() {
     //Checks each minute
-    setInterval(checkTimer, 5000);
+    setInterval(checkTimer, 60000);
     document.onmousemove = function () {
         time = 0;
     }
@@ -37,7 +41,7 @@ inActiveTime();
 async function checkTimer() {
     //Sets for 5 mins
     console.log(time);
-    if (time == 1) {
+    if (time == 3) {
         logout();
     }
     time = time + 1;
