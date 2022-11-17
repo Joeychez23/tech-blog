@@ -1,5 +1,5 @@
 .M {
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     display: flex;
     height: 60px;
     background-color: blue;
@@ -23,16 +23,53 @@
 }
 
 
-#body {
-    height: 800px;
-    border: 2px solid green;
+.defaultClass {
+    border: 2px solid black;
+    margin-top: 5px;
+    padding: 5px;
+    
 }
 
-.blogBox {
-    border: 2px solid green;
+.defaultRowClass {
+    margin-top: 5px;
+    padding: 5px;
+    margin-right: 20px;
+    
 }
 
+/* home.handlebars*/
+.blogPreview {
+    border: 2px solid black;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+
+/* dashboard.handlebars*/
 #subUp {
     display: none;
 }
 
+#blogContent {
+    height: 80px;
+}
+
+
+/* blog.handlebars*/
+.blogData {
+    border: 2px solid black;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+
+.commentBox {
+    border: 2px solid black;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+
+#upCom {
+    display: none;
+}

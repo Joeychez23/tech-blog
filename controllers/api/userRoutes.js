@@ -53,7 +53,7 @@ router.post('/login', async function (req, res) {
         //The server started a session for the users current browsing window when they started the site
         //This function saves the user id index into that session if logged in successfully
         //This allows the user to close the tab and open it back up and remain logged in
-        req.session.save(function() {
+        await req.session.save(function() {
             req.session.user_id = data.id;
             req.session.logged_in = true;
 

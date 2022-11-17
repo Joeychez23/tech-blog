@@ -84,6 +84,7 @@ router.get('/dashboard', withAuth, async function (req, res) {
 router.get('/blog/:id', async function (req, res) {
 	try {
 		const data = await Blog.findByPk(req.params.id, {
+
 			include: [
 				{
 					model: User,
@@ -94,16 +95,28 @@ router.get('/blog/:id', async function (req, res) {
 					include: [
 						User
 					]
-				}
-			]
+				},
+			],
+
 		});
+
+
+
+
 		const blog = data.get({
 			plain: true
 		})
 
+		for (let i = 0; i < blog.comments.length; i++) {
+			blog.comments[i].currUser = req.session.user_id
+
+		}
+
+
+
 		res.render('blog', {
 			...blog,
-			logged_in: req.session.logged_in
+			logged_in: req.session.logged_in,
 		});
 	} catch (err) {
 		res.status(500).json(err);

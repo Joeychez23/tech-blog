@@ -18,7 +18,12 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
     secret: 'Super secret secret',
-    cookie: {},
+    cookie: {
+        maxAge: 24 * 60 * 60 * 1000,
+        // ^^ HOW LONG THE SESSION DATA LAST FOR
+        //secure: false,
+        // ^^ ONLY SENT OF ENCRYPTED CHANALS IF TRUE (HTTPS)
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -44,3 +49,4 @@ setTimeout(async function () {
     await app.listen(PORT);
     await console.log(`\nNow listening on port ${PORT}\n`);
 }, 10000);
+

@@ -1,3 +1,6 @@
+let currId;
+
+
 async function checkLogin(event) {
     event.preventDefault();
 
@@ -21,8 +24,10 @@ async function checkLogin(event) {
         const response = await fetch('/api/users/login', options);
 
 
+        const data = await response.json()
         if (response.ok) {
-            console.log('here');
+            console.log(data);
+            currId = data.user.id;
             setTimeout(function() {
                 window.location.href = '/dashboard'
             }, 100)
@@ -34,6 +39,7 @@ async function checkLogin(event) {
 
 
 //Frontend Events
+
 document.querySelector('.logForm').addEventListener('submit', checkLogin);
 
 
@@ -42,5 +48,6 @@ window.addEventListener("keypress", function(event) {
         checkLogin
     }
 });
+
 
 
