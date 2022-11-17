@@ -5,15 +5,15 @@ const { User } = require('../../models');
 
 
 //Signup / Create new user
-router.post('/', async function(req, res) {
+router.post('/', async function (req, res) {
     try {
         const data = await User.create(req.body);
 
-        req.session.save(function() {
+        req.session.save(function () {
             req.session.user_id = data.id;
             req.session.logged_in = true;
 
-            res.json({ user: data, message: 'You are now signed up'});
+            res.json({ user: data, message: 'You are now signed up' });
         })
     } catch (err) {
         res.status(400).json(err);
@@ -30,12 +30,12 @@ router.post('/login', async function (req, res) {
     try {
         //Finds user data for desired username
         const data = await User.findOne({
-            where: { username: req.body.username}
+            where: { username: req.body.username }
         });
 
         //Checks if 'data' / user data returns false
-        if(!data) {
-            res.status.json({message: 'Incorrect username or password'});
+        if (!data) {
+            res.status.json({ message: 'Incorrect username or password' });
             return;
         }
 
@@ -46,18 +46,18 @@ router.post('/login', async function (req, res) {
 
         //Check password is false for desired username
         if (!validPassword) {
-            res.status.json({message: 'Invalid Password'})
+            res.status.json({ message: 'Invalid Password' })
             return
         }
 
         //The server started a session for the users current browsing window when they started the site
         //This function saves the user id index into that session if logged in successfully
         //This allows the user to close the tab and open it back up and remain logged in
-        await req.session.save(function() {
+        await req.session.save(function () {
             req.session.user_id = data.id;
             req.session.logged_in = true;
 
-            res.json({ user: data, message: 'You are now logged in'});
+            res.json({ user: data, message: 'You are now logged in' });
         })
 
     } catch (err) {
@@ -70,13 +70,15 @@ router.post('/login', async function (req, res) {
 
 
 //Ends session when user logsout
-router.post('/logout', async function(req, res) {
-    if (req.session.logged_in) {
-        req.session.destroy(function() {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
+router.post('/logout', async function (req, res) {
+    try {
+        if (req.session.logged_in) {
+            req.session.destroy(function () {
+                res.status(204).end();
+            });
+        }
+    } catch (err) {
+        res.status(404).json(err);
     }
 })
 
