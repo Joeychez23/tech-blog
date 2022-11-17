@@ -4,20 +4,15 @@
 
   <div class="container-fluid blogPreview">
     <div class="row">
-      <div>
+      <div class="col-md-9">
         <h2>
           <a href="/blog/{{blog.id}}">{{blog.title}}</a>
         </h2>
       </div>
 
-      <div>
+      <div class="col-md-3">
         <p>Created by {{blog.user.username}} on {{ format_date blog.date_created }}</p>
       </div>
-    </div>
-    <div>
-      <p>
-        {{blog.description}}
-      </p>
     </div>
   </div>
 
