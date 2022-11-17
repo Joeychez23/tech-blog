@@ -40,7 +40,7 @@ The user can see all the comment and if the comment is a user added comment the 
 
 ## Output
 
-Link: https://tech-blog-sql.herokuapp.com/
+Link: <a href="https://tech-blog-sql.herokuapp.com" target="_blank">https://tech-blog-sql.herokuapp.com/</a>
 
 ## Contributors
 
@@ -54,4 +54,4 @@ Github: https://github.com/Joeychez23
 
 Repo: https://github.com/Joeychez23/tech-blog
 
-Link: https://tech-blog-sql.herokuapp.com/
+Link: <a href="https://tech-blog-sql.herokuapp.com" target="_blank">https://tech-blog-sql.herokuapp.com/</a>
