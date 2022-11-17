@@ -78,7 +78,7 @@ router.post('/logout', async function (req, res) {
             });
         }
     } catch (err) {
-        res.status(404).json(err);
+        res.json(err);
     }
 })
 
